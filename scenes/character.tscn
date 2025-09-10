@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpdnboxjadkpu"]
+
+[ext_resource type="PackedScene" uid="uid://gb31e7xnb0cx" path="res://assets/BoxerPrototype.glb" id="1_agfs1"]
+[ext_resource type="Script" uid="uid://dp0khnbn4b2ol" path="res://scripts/player/character.gd" id="2_rkhd4"]
+[ext_resource type="Script" uid="uid://kqgtasf6wdph" path="res://scripts/Input.gd" id="3_lrhn5"]
+[ext_resource type="Script" uid="uid://wljcsxcb75gj" path="res://scripts/Model.gd" id="4_my7n2"]
+[ext_resource type="Script" uid="uid://cl8cw2m0vtb5m" path="res://scripts/player/move/idle.gd" id="5_dp8ca"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rkhd4"]
+
+[node name="player" instance=ExtResource("1_agfs1")]
+script = ExtResource("2_rkhd4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_rkhd4")
+
+[node name="input" type="Node" parent="." index="3"]
+script = ExtResource("3_lrhn5")
+
+[node name="model" type="Node" parent="." index="4"]
+script = ExtResource("4_my7n2")
+
+[node name="idle" type="Node" parent="model" index="0"]
+script = ExtResource("5_dp8ca")
+
+[node name="jab" type="Node" parent="model" index="1"]
+
+[node name="cross" type="Node" parent="model" index="2"]
+
+[node name="block" type="Node" parent="model" index="3"]
